@@ -11,7 +11,10 @@ angular.module('myApp.text', ['ngRoute'])
 
     .controller('TextCtrl', ['$scope', function ($scope) {
         $scope.neuron = {
-            title: "LivaRava",
+            title: "What is LivaRava",
+            subscribers: 15,
+            axons: 35,
+            views: 216
 
         }
     }]);
