@@ -1,1 +1,55 @@
-<h1>{{neuron.title}}</h1>
+<section class="container">
+    <div ng-include="'layout/neuron-data.html'"></div>
+
+    <form class="form-inline">
+        <div class="form-group">
+            <label>Show:</label>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle form-control" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    All
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Text</a>
+                    <a class="dropdown-item" href="#">Link</a>
+                    <a class="dropdown-item" href="#">Image</a>
+                </div>
+            </div>
+        </div>
+        <div class="form-group pull-right">
+            <div class="btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Text</a>
+                    <a class="dropdown-item" href="#">Link</a>
+                    <a class="dropdown-item" href="#">Upload image</a>
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Post</a>
+                    <a class="dropdown-item" href="#">Project</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="media" ng-repeat="neuron in neuron.neurons">
+        <a class="media-left" href="#">
+            <img class="media-object" ng-src="{{neuron.image}}" alt="{{neuron.header}}" width="64">
+        </a>
+
+        <div class="media-body">
+            <h4 class="media-heading">{{neuron.header}}</h4>
+            <ul class="list-inline">
+                <li><span class="text-muted">Type:</span> {{neuron.type_title}}</li>
+                <li><span class="text-muted">Weight:</span> {{neuron.weight}}</li>
+            </ul>
+
+        </div>
+    </div>
+
+</section>
+
