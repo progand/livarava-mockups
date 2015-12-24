@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('myApp.index', ['ngRoute'])
+angular.module('myApp.index', ['ui.router'])
 
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/', {
+    .config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('/', {
+            url: '/',
             templateUrl: 'index/index.html',
             controller: 'IndexCtrl'
         });
