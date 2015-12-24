@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('myApp.text', ['ngRoute'])
+angular.module('myApp.text', ['ui.router'])
 
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/text', {
+    .config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('text', {
+            url: '/text',
             templateUrl: 'text/text.html',
             controller: 'TextCtrl',
             resolve: {
