@@ -17,4 +17,6 @@ angular.module('myApp.text', ['ui.router'])
 
     .controller('TextCtrl', ['$scope', 'neuron', function ($scope, neuron) {
         $scope.neuron = neuron;
+        $scope.filters = _.chain(neuron.neurons).pluck('type').uniq().value();
+        $scope.filter = '';
     }]);

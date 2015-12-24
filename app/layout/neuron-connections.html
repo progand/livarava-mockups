@@ -1,0 +1,48 @@
+<form class="form-inline m-b-md">
+    <div class="form-group" ng-show="filters.length">
+        <label>Show:</label>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle form-control" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                <span ng-if="filter">{{filter}}</span>
+                <span ng-if="!filter">All</span>
+            </button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item" ng-click="filter='{{filtersItem}}'" ng-repeat="filtersItem in filters">{{filtersItem}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-plus"></i> Add
+            </button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item">Text</button>
+                <button class="dropdown-item">Link</button>
+                <button class="dropdown-item">Upload image</button>
+
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item">Post</button>
+                <button class="dropdown-item">Project</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="media" ng-repeat="neuron in neuron.neurons">
+    <a class="media-left" href="#">
+        <img class="media-object" ng-src="{{neuron.image}}" alt="{{neuron.header}}" width="64">
+    </a>
+
+    <div class="media-body">
+        <h4 class="media-heading">{{neuron.header}}</h4>
+        <ul class="list-inline">
+            <li><span class="text-muted">Type:</span> {{neuron.type_title}}</li>
+            <li><span class="text-muted">Weight:</span> {{neuron.weight}}</li>
+        </ul>
+
+    </div>
+</div>
