@@ -57,7 +57,7 @@
     </div>
 
 
-    <div class="media" ng-repeat="neuron in filteredNeurons">
+    <div class="media" ng-repeat="neuron in filteredNeurons()">
         <div class="media-left">
             <img class="media-object" ng-src="{{neuron.image}}" alt="{{neuron.header}}" width="64">
         </div>

@@ -18,6 +18,9 @@ angular.module('myApp.text')
             } else if (text.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/) !== null) {
                 type = 'link';
                 image = 'https://www.livarava.com/static/livarava/img/neurons/link.png';
+            } else if(text.match(/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/i)){
+                type = 'phone';
+                image = 'https://www.livarava.com/static/livarava/img/neurons/phone.png';
             }
 
             return {

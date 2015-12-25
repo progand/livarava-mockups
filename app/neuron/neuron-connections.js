@@ -8,11 +8,14 @@ angular.module('myApp.text')
         $scope.newNeuronText = '';
         $scope.newNeuronForm = 'text';
 
-        $scope.setFilter = function (newFilter) {
-            $scope.filter = newFilter;
-            $scope.filteredNeurons = $scope.neuron.neurons.filter(function (n) {
+        $scope.filteredNeurons = function () {
+            return $scope.neuron.neurons.filter(function (n) {
                 return !$scope.filter || n.type === $scope.filter;
             });
+        };
+
+        $scope.setFilter = function (newFilter) {
+            $scope.filter = newFilter;
         };
         $scope.showNewNeuronForm = function (newNeuronForm) {
             $scope.newNeuronForm = newNeuronForm;
