@@ -2,11 +2,14 @@
 
 angular.module('myApp.text')
     .controller('NeuronConnectionsCtrl', ['$scope', 'neuronParser', function ($scope, neuronParser) {
-        $scope.filters = _.chain($scope.neuron.neurons).pluck('type').uniq().value();
         $scope.filter = null;
         $scope.filteredNeurons = $scope.neuron.neurons;
         $scope.newNeuronText = '';
         $scope.newNeuronForm = 'text';
+
+        $scope.filters = function () {
+            return _.chain($scope.neuron.neurons).pluck('type').uniq().value();
+        };
 
         $scope.filteredNeurons = function () {
             return $scope.neuron.neurons.filter(function (n) {

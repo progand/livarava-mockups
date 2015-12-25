@@ -1,6 +1,6 @@
 <div ng-controller="NeuronConnectionsCtrl">
     <form class="form-inline m-b-md">
-        <div class="form-group" ng-show="filters.length">
+        <div class="form-group" ng-show="filters().length">
             <label>Show:</label>
 
             <div class="btn-group ">
@@ -13,7 +13,7 @@
                 <div class="dropdown-menu">
                     <button class="dropdown-item " ng-click="setFilter(null)" ng-show="!!filter">All</button>
                     <button class="dropdown-item text-capitalize" ng-click="setFilter(filtersItem)"
-                            ng-repeat="filtersItem in filters" ng-show="filter!==filtersItem">{{filtersItem}}
+                            ng-repeat="filtersItem in filters()" ng-show="filter!==filtersItem">{{filtersItem}}
                     </button>
                 </div>
             </div>
