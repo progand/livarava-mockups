@@ -20,11 +20,15 @@ angular.module('myApp.text', ['ui.router'])
         $scope.filters = _.chain(neuron.neurons).pluck('type').uniq().value();
         $scope.filter = null;
         $scope.filteredNeurons = neuron.neurons;
+        $scope.newNeuronForm = 'text';
 
         $scope.setFilter = function (newFilter) {
             $scope.filter = newFilter;
             $scope.filteredNeurons = $scope.neuron.neurons.filter(function (n) {
                 return !$scope.filter || n.type === $scope.filter;
             });
-        }
+        };
+        $scope.showNewNeuronForm = function(newNeuronForm){
+            $scope.newNeuronForm = newNeuronForm;
+        };
     }]);
