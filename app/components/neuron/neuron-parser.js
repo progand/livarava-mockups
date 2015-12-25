@@ -6,6 +6,10 @@ angular.module('myApp.text')
             var type = 'text',
                 image = 'https://www.livarava.com/static/livarava/img/neurons/text.png';
 
+            if (!(text && _.isString(text))) {
+                return {};
+            }
+
             var videoId = text.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
             if (videoId != null && videoId[1]) {
                 type = 'video';

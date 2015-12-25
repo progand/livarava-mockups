@@ -36,20 +36,35 @@
         </div>
     </form>
 
-    <div class="card m-b-lg" ng-show="newNeuronForm==='text'">
+    <div class="card m-b-lg" ng-show="newNeuronForm">
         <div class="card-block">
             <button type="button" class="close" aria-label="Close" ng-click="showNewNeuronForm(null)">
                 <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="card-title">New neuron</h4>
+            <form ng-show="newNeuronForm==='text'" ng-submit="addNewNeuron()">
+                <h4 class="card-title">New neuron</h4>
 
-            <form ng-submit="addNewNeuron()">
                 <fieldset class="form-group">
                     <label>Write or paste text or url</label>
                     <input type="text" class="form-control" placeholder="Enter some text" ng-model="newNeuronText"
                            required>
-                    <small class="text-muted">If you want to add image or video from web - just paste link here</small>
+                    <small class="text-muted">If you want to add image or video from web - just paste link here
+                    </small>
                 </fieldset>
+
+                <div class="media m-b" ng-if="newNeuronText">
+                    <div class="media-left">
+                        <img class="media-object" ng-src="{{newNeuron().image}}" width="64" alt="{{newNeuron().header}}"/>
+                    </div>
+
+                    <div class="media-body">
+                        <h4 class="media-heading">{{newNeuron().header}}</h4>
+                        <ul class="list-inline">
+                            <li><span class="text-muted">Added:</span> {{newNeuron().created | date:'mediumDate'}}</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <button class="btn btn-primary" type="submit">Add</button>
             </form>
 
