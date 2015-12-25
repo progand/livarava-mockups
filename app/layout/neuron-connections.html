@@ -3,13 +3,14 @@
         <label>Show:</label>
 
         <div class="btn-group ">
-            <button type="button" class="btn btn-secondary dropdown-toggle form-control" data-toggle="dropdown"
+            <button type="button" class="btn btn-secondary dropdown-toggle form-control text-capitalize" data-toggle="dropdown"
+            <button type="button" class="btn btn-secondary dropdown-toggle form-control text-capitalize" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                 <span ng-if="filter">{{filter}}</span>
                 <span ng-if="!filter">All</span>
             </button>
             <div class="dropdown-menu">
-                <button class="dropdown-item" ng-click="setFilter(null)" ng-show="!!filter">All</button>
+                <button class="dropdown-item " ng-click="setFilter(null)" ng-show="!!filter">All</button>
                 <button class="dropdown-item text-capitalize" ng-click="setFilter(filtersItem)" ng-repeat="filtersItem in filters" ng-show="filter!==filtersItem">{{filtersItem}}</button>
             </div>
         </div>
