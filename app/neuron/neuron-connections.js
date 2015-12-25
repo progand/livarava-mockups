@@ -28,6 +28,7 @@ angular.module('myApp.text')
         $scope.addNewNeuron = function () {
             $scope.neuron.neurons.unshift($scope.newNeuron);
             this.newNeuronText = '';
+            $scope.newNeuron = null;
         };
         $scope.onNewNeuronTextChange = function () {
             $scope.newNeuron = neuronParser.parse(this.newNeuronText);
