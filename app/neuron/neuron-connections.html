@@ -46,11 +46,13 @@
             <form ng-submit="addNewNeuron()">
                 <fieldset class="form-group">
                     <label>Write or paste text or url</label>
-                    <input type="text" class="form-control" placeholder="Enter some text" ng-model="newNeuronText" required>
+                    <input type="text" class="form-control" placeholder="Enter some text" ng-model="newNeuronText"
+                           required>
                     <small class="text-muted">If you want to add image or video from web - just paste link here</small>
                 </fieldset>
+                <button class="btn btn-primary" type="submit">Add</button>
             </form>
-            <button class="btn btn-primary" type="submit">Add</button>
+
         </div>
     </div>
 
