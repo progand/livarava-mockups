@@ -6,9 +6,7 @@ angular.module('myApp.text')
         $scope.filteredNeurons = $scope.neuron.neurons;
         $scope.newNeuronText = '';
         $scope.newNeuronForm = 'text';
-        $scope.newNeuron = function(){
-            return neuronParser.parse(this.newNeuronText);
-        };
+        $scope.newNeuron = null;
 
         $scope.filters = function () {
             return _.chain($scope.neuron.neurons).pluck('type').uniq().value();
@@ -30,5 +28,8 @@ angular.module('myApp.text')
         $scope.addNewNeuron = function () {
             $scope.neuron.neurons.unshift($scope.newNeuron());
             this.newNeuronText = '';
-        }
+        };
+        $scope.onNewNeuronTextChange = function () {
+            $scope.newNeuron = neuronParser.parse(this.newNeuronText);
+        };
     }]);

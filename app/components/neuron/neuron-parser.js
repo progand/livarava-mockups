@@ -7,7 +7,7 @@ angular.module('myApp.text')
                 image = 'https://www.livarava.com/static/livarava/img/neurons/text.png';
 
             if (!(text && _.isString(text))) {
-                return {};
+                return null;
             }
 
             var videoId = text.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);

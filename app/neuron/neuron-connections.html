@@ -46,21 +46,21 @@
 
                 <fieldset class="form-group">
                     <label>Write or paste text or url</label>
-                    <input type="text" class="form-control" placeholder="Enter some text" ng-model="newNeuronText"
+                    <input type="text" class="form-control" placeholder="Enter some text" ng-model="newNeuronText" ng-change="onNewNeuronTextChange()"
                            required>
                     <small class="text-muted">If you want to add image or video from web - just paste link here
                     </small>
                 </fieldset>
 
-                <div class="media m-b" ng-if="newNeuronText">
+                <div class="media m-b" ng-if="newNeuron">
                     <div class="media-left">
-                        <img class="media-object" ng-src="{{newNeuron().image}}" width="64" alt="{{newNeuron().header}}"/>
+                        <img class="media-object" ng-src="{{newNeuron.image}}" width="64" alt="{{newNeuron.header}}"/>
                     </div>
 
                     <div class="media-body">
-                        <h4 class="media-heading">{{newNeuron().header}}</h4>
+                        <h4 class="media-heading">{{newNeuron.header}}</h4>
                         <ul class="list-inline">
-                            <li><span class="text-muted">Added:</span> {{newNeuron().created | date:'mediumDate'}}</li>
+                            <li><span class="text-muted">Added:</span> {{newNeuron.created | date:'mediumDate'}}</li>
                         </ul>
                     </div>
                 </div>
