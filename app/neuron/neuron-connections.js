@@ -5,7 +5,7 @@ angular.module('myApp.text')
         $scope.filter = null;
         $scope.filteredNeurons = $scope.neuron.neurons;
         $scope.newNeuronText = '';
-        $scope.newNeuronForm = 'text';
+        $scope.newNeuronForm = '';
 
         $scope.filters = function () {
             return _.chain($scope.neuron.neurons).pluck('type').uniq().value();

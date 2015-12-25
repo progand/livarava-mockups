@@ -164,11 +164,13 @@
     });
 
     neuron.neurons = neuron.neurons.map(function (neuron1) {
-        if (neuron1.image.indexOf('/') === 0) {
-            neuron1.image = 'https://www.livarava.com' + neuron1.image;
+        var newNeuron = _.pick(neuron1, 'id', 'header', 'image', 'type', 'type_title');
+        newNeuron.created = new Date();
+
+        if (newNeuron.image.indexOf('/') === 0) {
+            newNeuron.image = 'https://www.livarava.com' + newNeuron.image;
         }
-        neuron1.created = new Date();
-        return neuron1;
+        return newNeuron;
     });
 
     window['text-neuron-data'] = neuron;
