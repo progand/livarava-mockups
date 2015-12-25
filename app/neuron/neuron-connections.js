@@ -26,7 +26,7 @@ angular.module('myApp.text')
         };
 
         $scope.addNewNeuron = function () {
-            $scope.neuron.neurons.unshift($scope.newNeuron());
+            $scope.neuron.neurons.unshift($scope.newNeuron);
             this.newNeuronText = '';
         };
         $scope.onNewNeuronTextChange = function () {
