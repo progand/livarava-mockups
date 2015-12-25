@@ -28,3 +28,11 @@
   content: "";
   padding: 0;
 }
+
+.media .close{
+  opacity: 0.05;
+}
+
+.media:hover .close{
+  opacity: 0.2;
+}

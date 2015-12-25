@@ -32,4 +32,7 @@ angular.module('myApp.text')
         $scope.onNewNeuronTextChange = function () {
             $scope.newNeuron = neuronParser.parse(this.newNeuronText);
         };
+        $scope.deleteFromNeurons = function(neuron){
+            $scope.neuron.neurons = _.without($scope.neuron.neurons, neuron)
+        }
     }]);
