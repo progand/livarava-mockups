@@ -43,14 +43,14 @@
             </button>
             <h4 class="card-title">New neuron</h4>
 
-            <form>
+            <form ng-submit="addNewNeuron()">
                 <fieldset class="form-group">
                     <label>Write or paste text or url</label>
-                    <input type="text" class="form-control" placeholder="Enter some text" ng-model="newNeuronText">
+                    <input type="text" class="form-control" placeholder="Enter some text" ng-model="newNeuronText" required>
                     <small class="text-muted">If you want to add image or video from web - just paste link here</small>
                 </fieldset>
             </form>
-            <button class="btn btn-primary" ng-click="addNewNeuron()">Add</button>
+            <button class="btn btn-primary" type="submit">Add</button>
         </div>
     </div>
 

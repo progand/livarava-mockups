@@ -24,6 +24,7 @@ angular.module('myApp.text')
                 image: 'https://www.livarava.com/static/livarava/img/neurons/text.png',
                 type_title: 'text',
                 header: this.newNeuronText
-            })
+            });
+            this.newNeuronText = '';
         }
     }]);
