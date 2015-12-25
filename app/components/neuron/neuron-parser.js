@@ -26,6 +26,7 @@ angular.module('myApp.text')
 
             return {
                 id: Date.now(),
+                created: new Date(),
                 header: text,
                 image: image,
                 type: type,

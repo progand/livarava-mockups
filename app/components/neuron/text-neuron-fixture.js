@@ -167,6 +167,7 @@
         if (neuron1.image.indexOf('/') === 0) {
             neuron1.image = 'https://www.livarava.com' + neuron1.image;
         }
+        neuron1.created = new Date();
         return neuron1;
     });
 
