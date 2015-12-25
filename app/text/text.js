@@ -2,14 +2,14 @@
 
 angular.module('myApp.text', ['ui.router'])
 
-    .config(['$stateProvider', function ($stateProvider) {
+    .config(['$stateProvider', 'textNeuronFixture', function ($stateProvider, textNeuronFixture) {
         $stateProvider.state('text', {
             url: '/text',
             templateUrl: 'text/text.html',
             controller: 'TextCtrl',
             resolve: {
                 neuron: function () {
-                    return window['text-neuron-data'];
+                    return textNeuronFixture;
                 }
             }
         });

@@ -6,7 +6,7 @@ angular.module('myApp', [
   'myApp.index',
   'myApp.text',
   //'myApp.project',
-  'myApp.version'
+  //'myApp.version'
 ]).
 config(['$urlRouterProvider', function($urlRouterProvider) {
   $urlRouterProvider.otherwise('/');

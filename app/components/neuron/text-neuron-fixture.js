@@ -1,4 +1,5 @@
 (function () {
+    'use strict';
     var neuron = {
         title: "What is LivaRava",
         subscribers: 15,
@@ -162,13 +163,16 @@
         return neuron2.id - neuron1.id;
     });
 
-    neuron.neurons = neuron.neurons.map(function(neuron1){
-        if(neuron1.image.indexOf('/') === 0){
+    neuron.neurons = neuron.neurons.map(function (neuron1) {
+        if (neuron1.image.indexOf('/') === 0) {
             neuron1.image = 'https://www.livarava.com' + neuron1.image;
         }
         return neuron1;
     });
 
     window['text-neuron-data'] = neuron;
+
+
+    angular.module('myApp.text').constant('textNeuronFixture', neuron);
 
 })();
