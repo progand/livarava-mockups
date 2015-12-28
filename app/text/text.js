@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.text', ['ui.router'])
+angular.module('myApp.text', ['ui.router', 'ngFileUpload'])
 
     .config(['$stateProvider', 'textNeuronFixture', function ($stateProvider, textNeuronFixture) {
         $stateProvider.state('text', {

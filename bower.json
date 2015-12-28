@@ -15,6 +15,7 @@
     "html5-boilerplate": "~5.2.0",
     "bootstrap": "4.0.0-alpha",
     "font-awesome": "4.*",
-    "lodash": "*"
+    "lodash": "*",
+    "ng-file-upload": "~11.0.0"
   }
 }

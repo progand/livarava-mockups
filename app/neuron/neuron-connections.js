@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('myApp.text')
-    .controller('NeuronConnectionsCtrl', ['$scope', 'neuronParser', function ($scope, neuronParser) {
+    .controller('NeuronConnectionsCtrl', ['$scope', 'Upload', 'neuronParser', function ($scope, Upload, neuronParser) {
         $scope.filter = null;
         $scope.filteredNeurons = $scope.neuron.neurons;
         $scope.newNeuronText = '';
-        $scope.newNeuronForm = '';
+        $scope.newNeuronForm = 'image';
         $scope.newNeuron = null;
+        $scope.newNeuronImage = {};
 
         $scope.filters = function () {
             return _.chain($scope.neuron.neurons).pluck('type').uniq().value();
