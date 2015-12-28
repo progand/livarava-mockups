@@ -63,6 +63,7 @@
                         <ul class="list-inline">
                             <li><span class="text-muted">Added:</span> {{newNeuron.created | date:'mediumDate'}}</li>
                         </ul>
+
                     </div>
                 </div>
 
@@ -79,14 +80,20 @@
         </div>
 
         <div class="media-body">
-            <button type="button" class="close" aria-label="Close" ng-click="deleteFromNeurons(neuron)">
-                <span aria-hidden="true">&times;</span>
-            </button>
             <h4 class="media-heading">{{neuron.header}}</h4>
-            <ul class="list-inline">
+            <ul class="list-inline pull-left">
                 <li><span class="text-muted">Added:</span> {{neuron.created | date:'mediumDate'}}</li>
             </ul>
-
+            <div class="btn-group dropup pull-right">
+                <button class="btn btn-info-outline btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    Actions
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <!-- Dropdown menu links -->
+                    <button class="dropdown-item btn-sm " ng-click="deleteFromNeurons(neuron)">Delete</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
