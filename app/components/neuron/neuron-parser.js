@@ -11,7 +11,7 @@ angular.module('myApp.text')
             }
 
             var videoId = text.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-            if (videoId != null && videoId[1]) {
+            if (videoId !== null && videoId[1]) {
                 type = 'video';
                 image = 'http://img.youtube.com/vi/' + videoId[1] + '/default.jpg';
             } else if (/\.(jpeg|jpg|gif|png)$/.test(text)) {

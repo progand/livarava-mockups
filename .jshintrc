@@ -2,6 +2,7 @@
   "globalstrict": true,
   "globals": {
     "angular": false,
+    "_": true,
     "describe": false,
     "it": false,
     "expect": false,

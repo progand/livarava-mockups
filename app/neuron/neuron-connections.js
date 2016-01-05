@@ -36,5 +36,5 @@ angular.module('myApp.text')
         };
         $scope.deleteFromNeurons = function(neuron){
             $scope.neuron.neurons = _.without($scope.neuron.neurons, neuron)
-        }
+        };
     }]);
