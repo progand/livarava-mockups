@@ -1,38 +1,51 @@
 /* app css stylesheet */
 
 .menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
 }
 
 .menu:before {
-  content: "[";
+    content: "[";
 }
 
 .menu:after {
-  content: "]";
+    content: "]";
 }
 
 .menu > li {
-  display: inline;
+    display: inline;
 }
 
 .menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+    content: "|";
+    padding-right: 0.3em;
 }
 
 .menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+    content: "";
+    padding: 0;
 }
 
-.media .close{
-  opacity: 0.05;
+.media .close {
+    opacity: 0.05;
 }
 
-.media:hover .close{
-  opacity: 0.2;
+.media:hover .close {
+    opacity: 0.2;
+}
+
+.drop-box {
+    padding: 2em;
+    border: dashed 1px grey;
+    background: #fbfbfb;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dragover {
+    background: transparent;
+    border: #5cb85c 1px dotted;
 }

@@ -75,8 +75,11 @@
                 <h4 class="card-title">Upload image</h4>
 
                 <fieldset class="form-group">
-                    <label>Select image</label>
-                    <div class="form-control btn btn-secondary" ngf-select="" ng-model="newNeuronImage.file" name="file" ngf-accept="'image/*'" required="">Select</div>
+                    <div ngf-drop ngf-select class="drop-box" ng-model="newNeuronImage" name="newNeuronImage"
+                         ngf-drag-over-class="'dragover text-success'"
+                         ngf-pattern="'image/*'" ngf-accept="'image/*'">Drop Images here
+                    </div>
+                    <div ngf-no-file-drop class="alert alert-warning">File Drag/Drop is not supported for this browser</div>
                     <small class="text-muted"></small>
                 </fieldset>
 
