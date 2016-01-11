@@ -75,23 +75,20 @@
                 <h4 class="card-title">Upload image</h4>
 
                 <fieldset class="form-group">
-                    <div ngf-drop ngf-select class="drop-box" ng-model="newNeuronImage.file" name="newNeuronImage"
-                         ngf-drag-over-class="'dragover text-success'"
-                         ngf-pattern="'image/*'" ngf-accept="'image/*'">Drop Images here
-                    </div>
-                    <div ngf-no-file-drop class="alert alert-warning">File Drag/Drop is not supported for this browser</div>
+                    <div class="drop-box" ng-show="uploader.isHTML5">Drop Images here</div>
+                    <input type="file" nv-file-select="" uploader="uploader" accept="image/*"/><br/>
                     <small class="text-muted"></small>
                 </fieldset>
 
-                <div class="media m-b" ng-if="newNeuronImage.file">
+                <div class="media m-b" ng-show="newNeuronImage">
                     <div class="media-left">
-                        <img class="media-object" ngf-thumbnail="{{newNeuronImage.file}}" width="64"/>
+                        <img class="media-object" ng-src="{{newNeuronImage}}" width="64"/>
                     </div>
 
                     <div class="media-body">
                         <h4 class="media-heading">{{neuron.title}}</h4>
                         <ul class="list-inline">
-                            <li><span class="text-muted">Added:</span> {{newNeuronImage.created | date:'mediumDate'}}
+                            <li><span class="text-muted">Added:</span> {{Date.now() | date:'mediumDate'}}
                             </li>
                         </ul>
 

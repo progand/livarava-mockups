@@ -16,6 +16,6 @@
     "bootstrap": "4.0.0-alpha",
     "font-awesome": "4.*",
     "lodash": "*",
-    "ng-file-upload": "~11.0.0"
+    "angular-file-upload": "~2.2.0"
   }
 }

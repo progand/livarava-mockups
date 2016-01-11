@@ -3,6 +3,7 @@
   "globals": {
     "angular": false,
     "_": true,
+    "window": true,
     "describe": false,
     "it": false,
     "expect": false,

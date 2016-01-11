@@ -6,16 +6,6 @@
         axons: 35,
         views: 216,
         neurons: [{
-            "id": 22508,
-            "weight": 11,
-            "header": "How startup funding works - Infographics",
-            "title": "https://wantrepreneurship.files.wordpress.com/2015/04/how-funding-works-infographic.png",
-            "type": "image",
-            "data": 22508,
-            "icon": "/static/livarava/img/neurons/image.png",
-            "image": "https://wantrepreneurship.files.wordpress.com/2015/04/how-funding-works-infographic.png",
-            "type_title": "image"
-        }, {
             "id": 27462,
             "weight": 10,
             "header": "Fundraising",
