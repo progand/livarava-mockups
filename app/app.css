@@ -37,14 +37,16 @@
     opacity: 0.2;
 }
 
-.neuron-connections__neurons .media{
-    position: relative;
-}
+@media (min-width: 34em) {
+    .neuron-connections__neurons .media {
+        position: relative;
+    }
 
-.neuron-connections__neurons .media .dropup{
-    position: absolute;
-    right: 0;
-    bottom:0;
+    .neuron-connections__neurons .media .dropup {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
 }
 
 .my-drop-zone {
