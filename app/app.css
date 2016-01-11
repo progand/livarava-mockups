@@ -37,16 +37,10 @@
     opacity: 0.2;
 }
 
-.drop-box {
-    padding: 2em;
-    margin-bottom: 1em;
-    border: dashed 1px grey;
-    background: #fbfbfb;
-    text-align: center;
-    cursor: pointer;
+.my-drop-zone {
+    border: dotted 3px lightgray;
 }
 
-.dragover {
-    background: transparent;
-    border: #5cb85c 1px dotted;
+.nv-file-over {
+    border: dotted 3px red;
 }

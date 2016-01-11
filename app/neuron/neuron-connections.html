@@ -41,7 +41,7 @@
             <button type="button" class="close" aria-label="Close" ng-click="showNewNeuronForm(null)">
                 <span aria-hidden="true">&times;</span>
             </button>
-            <form ng-if="newNeuronForm==='text'" ng-submit="addNewNeuron()">
+            <form ng-show="newNeuronForm==='text'" ng-submit="addNewNeuron(newNeuron)">
                 <h4 class="card-title">New neuron</h4>
 
                 <fieldset class="form-group">
@@ -71,24 +71,23 @@
             </form>
 
             <!-- Image uploading -->
-            <form ng-if="newNeuronForm==='image'" ng-submit="addNewNeuron()" name="newNeuronImageForm">
+            <form ng-show="newNeuronForm==='image'" ng-submit="addNewNeuron(newImageNeuron)" name="newNeuronImageForm">
                 <h4 class="card-title">Upload image</h4>
 
                 <fieldset class="form-group">
-                    <div class="drop-box" ng-show="uploader.isHTML5">Drop Images here</div>
                     <input type="file" nv-file-select="" uploader="uploader" accept="image/*"/><br/>
                     <small class="text-muted"></small>
                 </fieldset>
 
-                <div class="media m-b" ng-if="newNeuron">
+                <div class="media m-b" ng-if="newImageNeuron">
                     <div class="media-left">
-                        <img class="media-object" ng-src="{{newNeuron.image}}" width="64" alt="{{newNeuron.header}}"/>
+                        <img class="media-object" ng-src="{{newImageNeuron.image}}" width="64" alt="{{newImageNeuron.header}}"/>
                     </div>
 
                     <div class="media-body">
-                        <h4 class="media-heading">{{newNeuron.header}}</h4>
+                        <h4 class="media-heading">{{newImageNeuron.header}}</h4>
                         <ul class="list-inline">
-                            <li><span class="text-muted">Added:</span> {{newNeuron.created | date:'mediumDate'}}</li>
+                            <li><span class="text-muted">Added:</span> {{newImageNeuron.created | date:'mediumDate'}}</li>
                         </ul>
 
                     </div>

@@ -17,7 +17,7 @@ angular.module('myApp.text')
 
                 reader.onloadend = function (event) {
                     $scope.$apply(function () {
-                        $scope.newNeuron = neuronParser.parse({
+                        $scope.newImageNeuron = neuronParser.parse({
                             raw: event.target.result,
                             header: $scope.neuron.header
                         });
@@ -29,7 +29,7 @@ angular.module('myApp.text')
 
             uploader.onAfterAddingAll = function (addedFileItems) {
                 $scope.$apply(function () {
-                    $scope.newNeuron = null;
+                    $scope.newImageNeuron = null;
                 });
             };
         }
@@ -52,10 +52,16 @@ angular.module('myApp.text')
             $scope.newNeuronForm = newNeuronForm;
         };
 
-        $scope.addNewNeuron = function () {
-            $scope.neuron.neurons.unshift($scope.newNeuron);
-            this.newNeuronText = '';
-            $scope.newNeuron = null;
+        $scope.addNewNeuron = function (neuron) {
+            $scope.neuron.neurons.unshift(neuron);
+
+            if ($scope.newNeuron === neuron) {
+                this.newNeuronText = '';
+                $scope.newNeuron = null;
+            }
+            if ($scope.newImageNeuron === neuron) {
+                $scope.newImageNeuron = null;
+            }
         };
         $scope.onNewNeuronTextChange = function () {
             $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText});
