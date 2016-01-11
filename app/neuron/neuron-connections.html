@@ -81,13 +81,15 @@
 
                 <div class="media m-b" ng-if="newImageNeuron">
                     <div class="media-left">
-                        <img class="media-object" ng-src="{{newImageNeuron.image}}" width="64" alt="{{newImageNeuron.header}}"/>
+                        <img class="media-object" ng-src="{{newImageNeuron.image}}" width="64"
+                             alt="{{newImageNeuron.header}}"/>
                     </div>
 
                     <div class="media-body">
                         <h4 class="media-heading">{{newImageNeuron.header}}</h4>
                         <ul class="list-inline">
-                            <li><span class="text-muted">Added:</span> {{newImageNeuron.created | date:'mediumDate'}}</li>
+                            <li><span class="text-muted">Added:</span> {{newImageNeuron.created | date:'mediumDate'}}
+                            </li>
                         </ul>
 
                     </div>
@@ -100,24 +102,26 @@
     </div>
 
 
-    <div class="media" ng-repeat="neuron in filteredNeurons()">
-        <div class="media-left">
-            <img class="media-object" ng-src="{{neuron.image}}" alt="{{neuron.header}}" width="64">
-        </div>
+    <div class="neuron-connections__neurons">
+        <div class="media" ng-repeat="neuron in filteredNeurons()">
+            <div class="media-left">
+                <img class="media-object" ng-src="{{neuron.image}}" alt="{{neuron.header}}" width="100">
+            </div>
 
-        <div class="media-body">
-            <h4 class="media-heading">{{neuron.header}}</h4>
-            <ul class="list-inline pull-left">
-                <li><span class="text-muted">Added:</span> {{neuron.created | date:'mediumDate'}}</li>
-            </ul>
-            <div class="btn-group dropup pull-right">
-                <button class="btn btn-info-outline btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    Actions
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <!-- Dropdown menu links -->
-                    <button class="dropdown-item btn-sm " ng-click="deleteFromNeurons(neuron)">Delete</button>
+            <div class="media-body">
+                <h4 class="media-heading">{{neuron.header}}</h4>
+                <ul class="list-inline pull-left">
+                    <li><span class="text-muted">Added:</span> {{neuron.created | date:'mediumDate'}}</li>
+                </ul>
+                <div class="btn-group dropup pull-right">
+                    <button class="btn btn-info-outline btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Actions
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- Dropdown menu links -->
+                        <button class="dropdown-item btn-sm " ng-click="deleteFromNeurons(neuron)">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>
