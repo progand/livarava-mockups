@@ -54,7 +54,15 @@ angular.module('myApp.text')
 
         $scope.addNewNeuron = function (neuron) {
             $scope.neuron.neurons.unshift(neuron);
-
+            $scope.clearNeuron(neuron);
+        };
+        $scope.onNewNeuronTextChange = function () {
+            $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText});
+        };
+        $scope.deleteFromNeurons = function (neuron) {
+            $scope.neuron.neurons = _.without($scope.neuron.neurons, neuron)
+        };
+        $scope.clearNeuron = function (neuron) {
             if ($scope.newNeuron === neuron) {
                 this.newNeuronText = '';
                 $scope.newNeuron = null;
@@ -62,11 +70,5 @@ angular.module('myApp.text')
             if ($scope.newImageNeuron === neuron) {
                 $scope.newImageNeuron = null;
             }
-        };
-        $scope.onNewNeuronTextChange = function () {
-            $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText});
-        };
-        $scope.deleteFromNeurons = function (neuron) {
-            $scope.neuron.neurons = _.without($scope.neuron.neurons, neuron)
         };
     }]);

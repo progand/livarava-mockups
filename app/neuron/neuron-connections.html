@@ -1,4 +1,4 @@
- <h2>Connected neurons</h2>
+ <h2>Connected neurons (axons)</h2>
 <div ng-controller="NeuronConnectionsCtrl">
     <form class="form-inline m-b-md">
         <div class="form-group" ng-show="filters().length">
@@ -70,10 +70,11 @@
                 </div>
 
                 <button class="btn btn-primary" type="submit">Add</button>
+                <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newNeuron)">Reset</button>
             </form>
 
             <!-- Image uploading -->
-            <form ng-show="newNeuronForm==='image'" ng-submit="addNewNeuron(newImageNeuron)" name="newNeuronImageForm">
+            <form ng-show="newNeuronForm==='image'" ng-submit="addNewNeuron(newImageNeuron)"  name="newNeuronImageForm">
                 <h4 class="card-title">Upload image</h4>
 
                 <fieldset class="form-group">
@@ -98,6 +99,7 @@
                 </div>
 
                 <button class="btn btn-primary" type="submit">Add</button>
+                <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newImageNeuron)">Reset</button>
             </form>
 
         </div>
