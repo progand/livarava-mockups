@@ -1,4 +1,4 @@
- <h2>Connected neurons (axons)</h2>
+<h2>Connected neurons (axons)</h2>
 <div ng-controller="NeuronConnectionsCtrl">
     <form class="form-inline m-b-md">
         <div class="form-group" ng-show="filters().length">
@@ -28,6 +28,7 @@
                 <div class="dropdown-menu">
                     <button class="dropdown-item" ng-click="showNewNeuronForm('text')">Text / Link</button>
                     <button class="dropdown-item" ng-click="showNewNeuronForm('image')">Upload image</button>
+                    <button class="dropdown-item" ng-click="showNewNeuronForm('audio')">Upload audio</button>
 
                     <div class="dropdown-divider"></div>
                     <button class="dropdown-item disabled">Post</button>
@@ -57,7 +58,7 @@
 
                 <div class="media m-b" ng-if="newNeuron">
                     <div class="media-left">
-                        <img class="media-object" ng-src="{{newNeuron.image}}" width="64" alt="{{newNeuron.header}}"/>
+                        <img class="media-object" ng-src="{{newNeuron.image}}" width="100" alt="{{newNeuron.header}}"/>
                     </div>
 
                     <div class="media-body">
@@ -74,7 +75,7 @@
             </form>
 
             <!-- Image uploading -->
-            <form ng-show="newNeuronForm==='image'" ng-submit="addNewNeuron(newImageNeuron)"  name="newNeuronImageForm">
+            <form ng-show="newNeuronForm==='image'" ng-submit="addNewNeuron(newImageNeuron)" name="newNeuronImageForm">
                 <h4 class="card-title">Upload image</h4>
 
                 <fieldset class="form-group">
@@ -84,7 +85,7 @@
 
                 <div class="media m-b" ng-if="newImageNeuron">
                     <div class="media-left">
-                        <img class="media-object" ng-src="{{newImageNeuron.image}}" width="64"
+                        <img class="media-object" ng-src="{{newImageNeuron.image}}" width="100"
                              alt="{{newImageNeuron.header}}"/>
                     </div>
 
@@ -100,6 +101,33 @@
 
                 <button class="btn btn-primary" type="submit">Add</button>
                 <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newImageNeuron)">Reset</button>
+            </form>
+
+            <!-- Audio uploading -->
+            <form ng-show="newNeuronForm==='audio'" ng-submit="addNewNeuron(newAudioNeuron)" name="newNeuronAudioForm">
+                <h4 class="card-title">Upload audio</h4>
+
+                <fieldset class="form-group">
+                    <input type="file" nv-file-select="" uploader="audioUploader" accept="audio/mp3"/><br/>
+                    <small class="text-muted">It is better to upload small *.mp3 files here.</small>
+                </fieldset>
+
+                <div class="media m-b" ng-if="newAudioNeuron">
+                    <div class="media-left">
+                        <img class="media-object" ng-src="{{newAudioNeuron.image}}" width="100" alt=""/>
+                    </div>
+
+                    <div class="media-body">
+                        <div class="media-heading"><audio id="neuron-connections-form-audio" controls /></div>
+                        <ul class="list-inline">
+                            <li><span class="text-muted">Added:</span> {{newAudioNeuron.created | date:'mediumDate'}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Add</button>
+                <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newAudioNeuron)">Reset</button>
             </form>
 
         </div>

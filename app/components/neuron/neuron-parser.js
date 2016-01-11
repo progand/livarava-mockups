@@ -15,9 +15,12 @@ angular.module('myApp.text')
             if (videoId !== null && videoId[1]) {
                 type = 'video';
                 image = 'http://img.youtube.com/vi/' + videoId[1] + '/default.jpg';
-            } else if (/\.(jpeg|jpg|gif|png)$/.test(raw) || /^data:.+\/(.+);base64,(.*)$/.test(raw)) {
+            } else if (/\.(jpeg|jpg|gif|png)$/.test(raw) || /^data:image\/(.+);base64,(.*)$/.test(raw)) {
                 type = 'image';
                 image = raw;
+            }else if (/^data:audio\/(.+);base64,(.*)$/.test(raw)) {
+                type = 'audio';
+                image = 'https://www.livarava.com/static/livarava/img/neurons/audio.png';
             } else if (/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/.test(raw)) {
                 type = 'link';
                 image = 'https://www.livarava.com/static/livarava/img/neurons/link.png';

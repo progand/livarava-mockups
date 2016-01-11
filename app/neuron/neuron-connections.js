@@ -5,12 +5,14 @@ angular.module('myApp.text')
         $scope.filter = null;
         $scope.filteredNeurons = $scope.neuron.neurons;
         $scope.newNeuronText = '';
-        $scope.newNeuronForm = '';
+        $scope.newNeuronForm = 'audio';
         $scope.newNeuron = null;
 
         /* File uploader settings */
         if (window.FileReader) {
-            var uploader = $scope.uploader = new FileUploader();
+            var uploader = $scope.uploader = new FileUploader(),
+                audioUploader = $scope.audioUploader = new FileUploader();
+
 
             uploader.onAfterAddingFile = function (fileItem) {
                 var reader = new window.FileReader();
@@ -27,9 +29,29 @@ angular.module('myApp.text')
                 reader.readAsDataURL(fileItem._file);
             };
 
+            audioUploader.onAfterAddingFile = function (fileItem) {
+                var reader = new window.FileReader();
+
+                reader.onloadend = function (event) {
+                    $scope.$apply(function () {
+                        $scope.newAudioNeuron = neuronParser.parse({
+                            raw: event.target.result
+                        });
+                    });
+                };
+
+                reader.readAsDataURL(fileItem._file);
+            };
+
             uploader.onAfterAddingAll = function (addedFileItems) {
                 $scope.$apply(function () {
                     $scope.newImageNeuron = null;
+                });
+            };
+
+            audioUploader.onAfterAddingAll = function (addedFileItems) {
+                $scope.$apply(function () {
+                    $scope.newAudioNeuron = null;
                 });
             };
         }
