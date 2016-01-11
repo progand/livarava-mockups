@@ -12,14 +12,15 @@ angular.module('myApp.text')
         if (window.FileReader) {
             var uploader = $scope.uploader = new FileUploader();
 
-            $scope.newNeuronImage = null;
-
             uploader.onAfterAddingFile = function (fileItem) {
                 var reader = new window.FileReader();
 
                 reader.onloadend = function (event) {
                     $scope.$apply(function () {
-                        $scope.newNeuronImage = event.target.result;
+                        $scope.newNeuron = neuronParser.parse({
+                            raw: event.target.result,
+                            header: $scope.neuron.header
+                        });
                     });
                 };
 
@@ -28,7 +29,7 @@ angular.module('myApp.text')
 
             uploader.onAfterAddingAll = function (addedFileItems) {
                 $scope.$apply(function () {
-                    $scope.newNeuronImage = null;
+                    $scope.newNeuron = null;
                 });
             };
         }
@@ -57,7 +58,7 @@ angular.module('myApp.text')
             $scope.newNeuron = null;
         };
         $scope.onNewNeuronTextChange = function () {
-            $scope.newNeuron = neuronParser.parse(this.newNeuronText);
+            $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText});
         };
         $scope.deleteFromNeurons = function (neuron) {
             $scope.neuron.neurons = _.without($scope.neuron.neurons, neuron)

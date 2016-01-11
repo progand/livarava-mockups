@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     var neuron = {
-        title: "This is Text Neuron - LivaRava",
+        header: "This is Text Neuron - LivaRava",
         subscribers: 15,
         axons: 35,
         views: 216,
