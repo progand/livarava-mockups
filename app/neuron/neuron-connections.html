@@ -70,7 +70,7 @@
                     </div>
                 </div>
 
-                <button class="btn btn-primary" type="submit">Add</button>
+                <button class="btn btn-primary" type="submit" ng-disabled="!newNeuron">Add</button>
                 <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newNeuron)">Reset</button>
             </form>
 
@@ -99,7 +99,7 @@
                     </div>
                 </div>
 
-                <button class="btn btn-primary" type="submit">Add</button>
+                <button class="btn btn-primary" type="submit" ng-disabled="!newImageNeuron">Add</button>
                 <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newImageNeuron)">Reset</button>
             </form>
 
@@ -128,8 +128,8 @@
                     </div>
                 </div>
 
-                <button class="btn btn-primary" type="submit">Add</button>
-                <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newAudioNeuron)">Reset</button>
+                <button class="btn btn-primary" type="submit" ng-disabled="!newAudioNeuron">Add</button>
+                <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newAudioNeuron)" >Reset</button>
             </form>
 
         </div>
