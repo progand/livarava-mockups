@@ -109,7 +109,7 @@
 
                 <fieldset class="form-group">
                     <input type="file" nv-file-select="" uploader="audioUploader" accept="audio/mp3"/><br/>
-                    <small class="text-muted">It is better to upload small *.mp3 files here.</small>
+                    <small class="text-muted">It is better to upload small (less than 1Mb) mp3 files here.</small>
                 </fieldset>
 
                 <div class="media m-b" ng-if="newAudioNeuron">
@@ -119,7 +119,7 @@
 
                     <div class="media-body">
                         <div class="media-heading" ng-if="newAudioNeuron">
-                            <audio src="{{newAudioNeuron.header | trustUrl}}" controls/>
+                            <audio ng-src="{{newAudioNeuron.header | trustUrl}}" controls/>
                         </div>
                         <ul class="list-inline">
                             <li><span class="text-muted">Added:</span> {{newAudioNeuron.created | date:'mediumDate'}}
@@ -144,7 +144,7 @@
 
             <div class="media-body">
                 <div class="media-heading" ng-if="neuron.type==='audio'">
-                    <audio src="{{neuron.header | trustUrl}}" controls/>
+                    <audio ng-src="{{neuron.header | trustUrl}}" controls/>
                 </div>
                 <h4 class="media-heading" ng-if="neuron.type!=='audio'">{{neuron.header}}</h4>
                 <ul class="list-inline pull-left">

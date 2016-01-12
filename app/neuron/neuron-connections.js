@@ -92,5 +92,8 @@ angular.module('myApp.text')
             if ($scope.newImageNeuron === neuron) {
                 $scope.newImageNeuron = null;
             }
+            if ($scope.newAudioNeuron === neuron) {
+                $scope.newAudioNeuron = null;
+            }
         };
     }]);
