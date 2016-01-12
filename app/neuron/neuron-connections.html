@@ -118,7 +118,9 @@
                     </div>
 
                     <div class="media-body">
-                        <div class="media-heading"><audio id="neuron-connections-form-audio" controls /></div>
+                        <div class="media-heading" ng-if="newAudioNeuron">
+                            <audio src="{{newAudioNeuron.header | trustUrl}}" controls/>
+                        </div>
                         <ul class="list-inline">
                             <li><span class="text-muted">Added:</span> {{newAudioNeuron.created | date:'mediumDate'}}
                             </li>
@@ -141,7 +143,10 @@
             </div>
 
             <div class="media-body">
-                <h4 class="media-heading">{{neuron.header}}</h4>
+                <div class="media-heading" ng-if="neuron.type==='audio'">
+                    <audio src="{{neuron.header | trustUrl}}" controls/>
+                </div>
+                <h4 class="media-heading" ng-if="neuron.type!=='audio'">{{neuron.header}}</h4>
                 <ul class="list-inline pull-left">
                     <li><span class="text-muted">Added:</span> {{neuron.created | date:'mediumDate'}}</li>
                 </ul>
