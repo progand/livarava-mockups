@@ -5,7 +5,7 @@ angular.module('myApp.text')
         $scope.filter = null;
         $scope.filteredNeurons = $scope.neuron.neurons;
         $scope.newNeuronText = '';
-        $scope.newNeuronForm = 'audio';
+        $scope.newNeuronForm = '';
         $scope.newNeuron = null;
 
         /* File uploader settings */
