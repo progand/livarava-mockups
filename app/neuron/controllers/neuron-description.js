@@ -2,34 +2,35 @@
 
 angular.module('myApp.text')
     .controller('NeuronDescriptionCtrl', ['$scope', function ($scope) {
-      //Description controller
-      //  $scope.message = 'Put description template here';
-        $scope.linkDescription = false;
+        //Description controller
         $scope.textDescription = false;
         $scope.newDescriptionText = '';
 
-        if ($scope.newDescriptionText == '') {
-            $scope.linkDescription = false;
-        } else {
-            $scope.linkDescription = true;
-        }
+        $scope.linkDescription = () => {
+            return !!$scope.newDescriptionText
+        };
 
         $scope.addDescription = data => {
             $scope.newDescriptionText = data;
             $scope.newDescription = false;
             if (data) {
-                $scope.linkDescription = true;
+                $scope.linkDescription = () => {
+                    return true;
+                };
                 $scope.textDescription = true;
             } else {
-                $scope.linkDescription = false;
+                $scope.linkDescription = () => {
+                    return false;
+                };
                 $scope.textDescription = false;
             }
         };
 
         $scope.onDescriptionEditLink = () => {
-            console.log($scope.textDescription);
             $scope.newDescription = !$scope.newDescription;
-            $scope.linkDescription = !$scope.linkDescription;
+            $scope.linkDescription = () => {
+                return true;
+            };
             $scope.textDescription = !$scope.textDescription;
             if($scope.textDescription == true) {
                 $scope.textDescription = false;
@@ -39,10 +40,14 @@ angular.module('myApp.text')
         $scope.onCloseForm = data => {
             $scope.newDescription = false;
             if (data) {
-                $scope.linkDescription = true;
+                $scope.linkDescription = () => {
+                    return true;
+                };
                 $scope.textDescription = true;
             } else {
-                $scope.linkDescription = false;
+                $scope.linkDescription = () => {
+                    return false;
+                };
                 $scope.textDescription = false;
             }
         };
