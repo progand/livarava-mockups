@@ -1,3 +1,24 @@
 <div ng-controller="NeuronDescriptionCtrl">
-    <p class="alert alert-warning">{{message}}</p>
+    <!--<p class="alert alert-warning" ng-click="newDescription = !newDescription" ng-hide="newDescription">{{message}}</p>-->
+    <div class="">
+        <div class="btn btn-link neuron-article-description-edit-button" ng-hide="linkDescription" ng-click="onDescriptionEditLink(newDescriptionText)">
+            Редактировать описание...
+        </div>
+        <div class="" ng-click="newDescription = !newDescription; textDescription = !textDescription" ng-show="textDescription">
+            {{newDescriptionText}}
+        </div>
+    </div>
+    <div ng-show="newDescription">
+        <form ng-submit="addDescription(newDescriptionText)">
+            <div class="form-group">
+                <textarea class="form-control" ng-model="newDescriptionText"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success-outline" type="submit" ng-show="newDescription">Сохранить</button>
+                <button type="button" class="close" ng-click="onCloseForm(newDescriptionText)">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
