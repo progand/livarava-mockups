@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp.text')
-    .controller('NeuronConnectionsCtrl', ['$scope', 'FileUploader', 'neuronParser', function($scope, FileUploader, neuronParser) {
+    .controller('NeuronConnectionsCtrl', ['$scope', 'FileUploader', 'neuronParser', function ($scope, FileUploader, neuronParser) {
         $scope.filter = null;
         $scope.filteredNeurons = $scope.neuron.neurons;
         $scope.newNeuronText = '';
@@ -43,23 +43,27 @@ angular.module('myApp.text')
             };
 
             uploader.onAfterAddingAll = (addedFileItems) =>
-                $scope.$apply(() => $scope.newImageNeuron = null);
+                $scope.$apply(() =>
+                    $scope.newImageNeuron = null);
 
             audioUploader.onAfterAddingAll = (addedFileItems) =>
-                $scope.$apply(() => $scope.newAudioNeuron = null);
+                $scope.$apply(() =>
+                    $scope.newAudioNeuron = null);
         }
 
 
-        $scope.filters = () => _.chain($scope.neuron.neurons).pluck('type').uniq().value();
+        $scope.filters = () =>
+            _.chain($scope.neuron.neurons).pluck('type').uniq().value();
 
         $scope.filteredNeurons = () =>
-            $scope.neuron.neurons.filter(n => !$scope.filter || n.type === $scope.filter
-            );
+            $scope.neuron.neurons.filter(n => !$scope.filter || n.type === $scope.filter);
 
 
-        $scope.setFilter = newFilter => $scope.filter = newFilter;
+        $scope.setFilter = newFilter =>
+            $scope.filter = newFilter;
 
-        $scope.showNewNeuronForm = newNeuronForm => $scope.newNeuronForm = newNeuronForm;
+        $scope.showNewNeuronForm = newNeuronForm =>
+            $scope.newNeuronForm = newNeuronForm;
 
         $scope.addNewNeuron = neuron => {
             $scope.neuron.neurons.unshift(neuron);
@@ -70,7 +74,7 @@ angular.module('myApp.text')
         };
 
         $scope.deleteFromNeurons = neuron =>
-            $scope.neuron.neurons = _.without($scope.neuron.neurons, neuron)
+            $scope.neuron.neurons = _.without($scope.neuron.neurons, neuron);
 
         $scope.clearNeuron = function (neuron) {
             if ($scope.newNeuron === neuron) {
