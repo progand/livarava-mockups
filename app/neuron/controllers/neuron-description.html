@@ -1,9 +1,9 @@
 <div ng-controller="NeuronDescriptionCtrl">
-    <div class="">
+    <div>
         <div class="btn btn-link neuron-article-description-edit-button" ng-hide="linkDescription()" ng-click="onDescriptionEditLink(newDescriptionText)">
             Редактировать описание...
         </div>
-        <div class="" ng-click="newDescription = !newDescription; textDescription = !textDescription" ng-show="textDescription">
+        <div ng-click="newDescription = !newDescription; textDescription = !textDescription" ng-show="textDescription">
             {{newDescriptionText}}
         </div>
     </div>
