@@ -14,23 +14,17 @@ angular.module('myApp.text')
             $scope.newDescriptionText = data;
             $scope.newDescription = false;
             if (data) {
-                $scope.linkDescription = () => {
-                    return true;
-                };
+                $scope.onCheckEl(true);
                 $scope.textDescription = true;
             } else {
-                $scope.linkDescription = () => {
-                    return false;
-                };
+                $scope.onCheckEl(false);
                 $scope.textDescription = false;
             }
         };
 
         $scope.onDescriptionEditLink = () => {
             $scope.newDescription = !$scope.newDescription;
-            $scope.linkDescription = () => {
-                return true;
-            };
+            $scope.onCheckEl(true);
             $scope.textDescription = !$scope.textDescription;
             if($scope.textDescription == true) {
                 $scope.textDescription = false;
@@ -40,16 +34,18 @@ angular.module('myApp.text')
         $scope.onCloseForm = data => {
             $scope.newDescription = false;
             if (data) {
-                $scope.linkDescription = () => {
-                    return true;
-                };
+                $scope.onCheckEl(true);
                 $scope.textDescription = true;
             } else {
-                $scope.linkDescription = () => {
-                    return false;
-                };
+                $scope.onCheckEl(false);
                 $scope.textDescription = false;
             }
+        };
+
+        $scope.onCheckEl = b => {
+            $scope.linkDescription = () => {
+                return b;
+            };
         };
 
     }]);
