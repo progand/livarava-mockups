@@ -149,11 +149,9 @@
     };
 
     // sort neuron by creation date - same as id - descending
-    neuron.neurons = neuron.neurons.sort(function (neuron1, neuron2) {
-        return neuron2.id - neuron1.id;
-    });
+    neuron.neurons = neuron.neurons.sort((neuron1, neuron2) => neuron2.id - neuron1.id);
 
-    neuron.neurons = neuron.neurons.map(function (neuron1) {
+    neuron.neurons = neuron.neurons.map(neuron1 => {
         var newNeuron = _.pick(neuron1, 'id', 'header', 'image', 'type', 'type_title');
         newNeuron.created = new Date();
 

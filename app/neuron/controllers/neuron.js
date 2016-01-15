@@ -2,7 +2,7 @@
 
 angular.module('myApp.text', ['ui.router', 'angularFileUpload'])
 
-    .config(['$stateProvider', 'textNeuronFixture', ($stateProvider, textNeuronFixture) => {
+    .config(['$stateProvider', 'textNeuronFixture', function ($stateProvider, textNeuronFixture) {
         $stateProvider.state('text', {
             url: '/text',
             templateUrl: 'neuron/controllers/neuron.html',
@@ -13,6 +13,6 @@ angular.module('myApp.text', ['ui.router', 'angularFileUpload'])
         });
     }])
 
-    .controller('TextCtrl', ['$scope', 'neuron', ($scope, neuron) => {
+    .controller('TextCtrl', ['$scope', 'neuron', function ($scope, neuron) {
         $scope.neuron = neuron;
     }]);

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp.text')
-    .controller('NeuronConnectionsCtrl', ['$scope', 'FileUploader', 'neuronParser', ($scope, FileUploader, neuronParser) => {
+    .controller('NeuronConnectionsCtrl', ['$scope', 'FileUploader', 'neuronParser', function($scope, FileUploader, neuronParser) {
         $scope.filter = null;
         $scope.filteredNeurons = $scope.neuron.neurons;
         $scope.newNeuronText = '';

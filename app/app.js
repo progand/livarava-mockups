@@ -8,4 +8,6 @@ angular.module('myApp', [
     //'myApp.project',
     //'myApp.version'
 ]).
-config(['$urlRouterProvider', $urlRouterProvider => $urlRouterProvider.otherwise('/')]);
+config(['$urlRouterProvider', function ($urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+}]);
