@@ -7,7 +7,7 @@ angular.module('myApp.text')
         $scope.newDescriptionText = '';
 
         $scope.linkDescription = () => {
-            return !!$scope.newDescriptionText
+            return !!$scope.newDescriptionText;
         };
 
         $scope.addDescription = data => {
