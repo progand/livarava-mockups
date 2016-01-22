@@ -30,6 +30,8 @@ angular.module('myApp.text')
             } else if (/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(raw)) {
                 type = 'email';
                 image = 'https://www.livarava.com/static/livarava/img/neurons/email.png';
+            } else {
+                options.header = raw;
             }
 
             return {

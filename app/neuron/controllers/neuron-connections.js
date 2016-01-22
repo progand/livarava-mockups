@@ -73,7 +73,7 @@ angular.module('myApp.text')
             }
         };
         $scope.onNewNeuronTextChange = function () {
-            $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText});
+            $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText, header: $scope.neuron.header});
         };
 
         $scope.deleteFromNeurons = neuron =>
