@@ -68,6 +68,9 @@ angular.module('myApp.text')
         $scope.addNewNeuron = neuron => {
             $scope.neuron.neurons.unshift(neuron);
             $scope.clearNeuron(neuron);
+            if($scope.newNeuronForm === "image" || $scope.newNeuronForm === "audio") {
+                $scope.newNeuronForm = null;
+            }
         };
         $scope.onNewNeuronTextChange = function () {
             $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText});
