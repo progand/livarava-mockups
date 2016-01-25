@@ -91,4 +91,13 @@ angular.module('myApp.text')
                 $scope.newAudioNeuron = null;
             }
         };
+
+        let $submits = $(".form-inline-btn-add");
+        $(document).scroll(function () {
+            if ($(this).scrollTop() > 150) {
+                $submits.addClass("form-inline-btn-add-top");
+            } else {
+                $submits.removeClass("form-inline-btn-add-top");
+            }
+        });
     }]);

@@ -19,119 +19,124 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="btn-group">
-                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-plus"></i> Add
-                </button>
-                <div class="dropdown-menu">
-                    <button class="dropdown-item" ng-click="showNewNeuronForm('text')">Text / Link</button>
-                    <button class="dropdown-item" ng-click="showNewNeuronForm('image')">Upload image</button>
-                    <button class="dropdown-item" ng-click="showNewNeuronForm('audio')">Upload audio</button>
-
-                    <div class="dropdown-divider"></div>
-                    <button class="dropdown-item disabled">Post</button>
-                    <button class="dropdown-item disabled">Project</button>
-                </div>
-            </div>
-        </div>
     </form>
 
+    <div class="m-b-md form-inline-btn-add">
+        <div>
+            <div class="form-group">
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-plus"></i> Add
+                    </button>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('text')">Text / Link</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('image')">Upload image</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('audio')">Upload audio</button>
 
-    <div class="card m-b-lg" ng-show="newNeuronForm">
-        <div class="card-block">
-            <button type="button" class="close" aria-label="Close" ng-click="showNewNeuronForm(null)">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <form ng-show="newNeuronForm==='text'" ng-submit="addNewNeuron(newNeuron)">
-                <h4 class="card-title">New neuron</h4>
-
-                <fieldset class="form-group">
-                    <label>Write or paste text or url</label>
-                    <input type="text" class="form-control" placeholder="Enter some text" ng-model="newNeuronText"
-                           ng-change="onNewNeuronTextChange()"
-                           required>
-                    <small class="text-muted">If you want to add image or video from web - just paste link here
-                    </small>
-                </fieldset>
-
-                <div class="media m-b" ng-if="newNeuron">
-                    <div class="media-left">
-                        <img class="media-object" ng-src="{{newNeuron.image}}" width="100" alt="{{newNeuron.header}}"/>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item disabled">Post</button>
+                        <button class="dropdown-item disabled">Project</button>
                     </div>
+                </div></div>
+        </div>
 
-                    <div class="media-body">
-                        <h4 class="media-heading">{{newNeuron.header}}</h4>
-                        <ul class="list-inline">
-                            <li><span class="text-muted">Added:</span> {{newNeuron.created | date:'mediumDate'}}</li>
-                        </ul>
 
-                    </div>
-                </div>
 
-                <button class="btn btn-primary" type="submit" ng-disabled="!newNeuron">Add</button>
-                <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newNeuron)">Reset</button>
-            </form>
+        <div class="card m-b-lg card-float" ng-show="newNeuronForm">
+            <div class="card-block">
+                <button type="button" class="close" aria-label="Close" ng-click="showNewNeuronForm(null)">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <form ng-show="newNeuronForm==='text'" ng-submit="addNewNeuron(newNeuron)">
+                    <h4 class="card-title">New neuron</h4>
 
-            <!-- Image uploading -->
-            <form ng-show="newNeuronForm==='image'" ng-submit="addNewNeuron(newImageNeuron)" name="newNeuronImageForm">
-                <h4 class="card-title">Upload image</h4>
+                    <fieldset class="form-group">
+                        <label>Write or paste text or url</label>
+                        <input type="text" class="form-control" placeholder="Enter some text" ng-model="newNeuronText"
+                               ng-change="onNewNeuronTextChange()"
+                               required>
+                        <small class="text-muted">If you want to add image or video from web - just paste link here
+                        </small>
+                    </fieldset>
 
-                <fieldset class="form-group">
-                    <input type="file" nv-file-select="" uploader="uploader" accept="image/*"/><br/>
-                    <small class="text-muted">It is better to upload small images here.</small>
-                </fieldset>
-
-                <div class="media m-b" ng-if="newImageNeuron">
-                    <div class="media-left">
-                        <img class="media-object" ng-src="{{newImageNeuron.image}}" width="100"
-                             alt="{{newImageNeuron.header}}"/>
-                    </div>
-
-                    <div class="media-body">
-                        <h4 class="media-heading">{{newImageNeuron.header}}</h4>
-                        <ul class="list-inline">
-                            <li><span class="text-muted">Added:</span> {{newImageNeuron.created | date:'mediumDate'}}
-                            </li>
-                        </ul>
-
-                    </div>
-                </div>
-
-                <button class="btn btn-primary" type="submit" ng-disabled="!newImageNeuron">Add</button>
-                <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newImageNeuron)">Reset</button>
-            </form>
-
-            <!-- Audio uploading -->
-            <form ng-show="newNeuronForm==='audio'" ng-submit="addNewNeuron(newAudioNeuron)" name="newNeuronAudioForm">
-                <h4 class="card-title">Upload audio</h4>
-
-                <fieldset class="form-group">
-                    <input type="file" nv-file-select="" uploader="audioUploader" accept="audio/mp3"/><br/>
-                    <small class="text-muted">It is better to upload small (less than 1Mb) mp3 files here.</small>
-                </fieldset>
-
-                <div class="media m-b" ng-if="newAudioNeuron">
-                    <div class="media-left">
-                        <img class="media-object" ng-src="{{newAudioNeuron.image}}" width="100" alt=""/>
-                    </div>
-
-                    <div class="media-body">
-                        <div class="media-heading" ng-if="newAudioNeuron">
-                            <audio ng-src="{{newAudioNeuron.header | trustUrl}}" controls/>
+                    <div class="media m-b" ng-if="newNeuron">
+                        <div class="media-left">
+                            <img class="media-object" ng-src="{{newNeuron.image}}" width="100" alt="{{newNeuron.header}}"/>
                         </div>
-                        <ul class="list-inline">
-                            <li><span class="text-muted">Added:</span> {{newAudioNeuron.created | date:'mediumDate'}}
-                            </li>
-                        </ul>
+
+                        <div class="media-body">
+                            <h4 class="media-heading">{{newNeuron.header}}</h4>
+                            <ul class="list-inline">
+                                <li><span class="text-muted">Added:</span> {{newNeuron.created | date:'mediumDate'}}</li>
+                            </ul>
+
+                        </div>
                     </div>
-                </div>
 
-                <button class="btn btn-primary" type="submit" ng-disabled="!newAudioNeuron">Add</button>
-                <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newAudioNeuron)" >Reset</button>
-            </form>
+                    <button class="btn btn-primary" type="submit" ng-disabled="!newNeuron">Add</button>
+                    <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newNeuron)">Reset</button>
+                </form>
 
+                <!-- Image uploading -->
+                <form ng-show="newNeuronForm==='image'" ng-submit="addNewNeuron(newImageNeuron)" name="newNeuronImageForm">
+                    <h4 class="card-title">Upload image</h4>
+
+                    <fieldset class="form-group">
+                        <input type="file" nv-file-select="" uploader="uploader" accept="image/*"/><br/>
+                        <small class="text-muted">It is better to upload small images here.</small>
+                    </fieldset>
+
+                    <div class="media m-b" ng-if="newImageNeuron">
+                        <div class="media-left">
+                            <img class="media-object" ng-src="{{newImageNeuron.image}}" width="100"
+                                 alt="{{newImageNeuron.header}}"/>
+                        </div>
+
+                        <div class="media-body">
+                            <h4 class="media-heading">{{newImageNeuron.header}}</h4>
+                            <ul class="list-inline">
+                                <li><span class="text-muted">Added:</span> {{newImageNeuron.created | date:'mediumDate'}}
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit" ng-disabled="!newImageNeuron">Add</button>
+                    <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newImageNeuron)">Reset</button>
+                </form>
+
+                <!-- Audio uploading -->
+                <form ng-show="newNeuronForm==='audio'" ng-submit="addNewNeuron(newAudioNeuron)" name="newNeuronAudioForm">
+                    <h4 class="card-title">Upload audio</h4>
+
+                    <fieldset class="form-group">
+                        <input type="file" nv-file-select="" uploader="audioUploader" accept="audio/mp3"/><br/>
+                        <small class="text-muted">It is better to upload small (less than 1Mb) mp3 files here.</small>
+                    </fieldset>
+
+                    <div class="media m-b" ng-if="newAudioNeuron">
+                        <div class="media-left">
+                            <img class="media-object" ng-src="{{newAudioNeuron.image}}" width="100" alt=""/>
+                        </div>
+
+                        <div class="media-body">
+                            <div class="media-heading" ng-if="newAudioNeuron">
+                                <audio ng-src="{{newAudioNeuron.header | trustUrl}}" controls/>
+                            </div>
+                            <ul class="list-inline">
+                                <li><span class="text-muted">Added:</span> {{newAudioNeuron.created | date:'mediumDate'}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit" ng-disabled="!newAudioNeuron">Add</button>
+                    <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newAudioNeuron)" >Reset</button>
+                </form>
+
+            </div>
         </div>
     </div>
 
