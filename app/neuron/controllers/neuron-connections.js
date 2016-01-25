@@ -92,12 +92,12 @@ angular.module('myApp.text')
             }
         };
 
-        let $submits = $(".form-inline-btn-add");
+        let $btnAdd = $(".form-inline-btn-add");
         $(document).scroll(function () {
             if ($(this).scrollTop() > 150) {
-                $submits.addClass("form-inline-btn-add-top");
+                $btnAdd.addClass("form-inline-btn-add-top");
             } else {
-                $submits.removeClass("form-inline-btn-add-top");
+                $btnAdd.removeClass("form-inline-btn-add-top");
             }
         });
     }]);
