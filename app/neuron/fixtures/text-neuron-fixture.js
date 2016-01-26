@@ -128,7 +128,7 @@
         }, {
             "id": 13239,
             "weight": 3,
-            "header": "http://img0.svcdn.lasvegas.com/v2/cache/lasvegas/25C7DBB7FDEE98EB339313F2B55B68D5.jpg",
+            "header": "This is Text Neuron - LivaRava",
             "title": "http://img0.svcdn.lasvegas.com/v2/cache/lasvegas/25C7DBB7FDEE98EB339313F2B55B68D5.jpg",
             "type": "image",
             "data": 13239,
@@ -138,7 +138,7 @@
         }, {
             "id": 13235,
             "weight": 3,
-            "header": "http://flippins.com/wp-content/uploads/2014/02/las-vegas-night.jpg",
+            "header": "This is Text Neuron - LivaRava",
             "title": "http://flippins.com/wp-content/uploads/2014/02/las-vegas-night.jpg",
             "type": "image",
             "data": 13235,

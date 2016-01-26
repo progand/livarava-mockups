@@ -68,9 +68,12 @@ angular.module('myApp.text')
         $scope.addNewNeuron = neuron => {
             $scope.neuron.neurons.unshift(neuron);
             $scope.clearNeuron(neuron);
+            if($scope.newNeuronForm === "image" || $scope.newNeuronForm === "audio") {
+                $scope.newNeuronForm = null;
+            }
         };
         $scope.onNewNeuronTextChange = function () {
-            $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText});
+            $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText, header: $scope.neuron.header});
         };
 
         $scope.deleteFromNeurons = neuron =>
@@ -88,4 +91,13 @@ angular.module('myApp.text')
                 $scope.newAudioNeuron = null;
             }
         };
+
+        let $btnAdd = $(".form-inline-btn-add");
+        $(document).scroll(function () {
+            if ($(this).scrollTop() > 150) {
+                $btnAdd.addClass("form-inline-btn-add-top");
+            } else {
+                $btnAdd.removeClass("form-inline-btn-add-top");
+            }
+        });
     }]);
