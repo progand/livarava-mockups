@@ -7,6 +7,15 @@ angular.module('myApp.text')
         $scope.newNeuronText = '';
         $scope.newNeuronForm = '';
         $scope.newNeuron = null;
+        $scope.newDataPost = {
+            id: null,
+            created: null,
+            header: "",
+            image: null,
+            description: "",
+            type: null,
+            type_title: null
+        };
 
         /* File uploader settings */
         if (window.FileReader) {
@@ -70,10 +79,25 @@ angular.module('myApp.text')
             $scope.clearNeuron(neuron);
             if($scope.newNeuronForm === "image" || $scope.newNeuronForm === "audio") {
                 $scope.newNeuronForm = null;
+                $scope.closePanel();
             }
         };
         $scope.onNewNeuronTextChange = function () {
             $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText, header: $scope.neuron.header});
+        };
+
+        $scope.addNewNeuronPost = neuron => {
+            let text = $scope.newDataPost.description;
+            $scope.newDataPost.id = Date.now();
+            $scope.newDataPost.created = Date.now();
+            $scope.newDataPost.type = "post";
+            $scope.newDataPost.type_title = "post";
+            if (text.length > 100) {
+                $scope.newDataPost.description = text.slice(0, 100) + " ...";
+            }
+            $scope.neuron.neurons.unshift(neuron);
+            $scope.clearNeuron(neuron);
+            $scope.closePanel();
         };
 
         $scope.deleteFromNeurons = neuron =>
@@ -90,6 +114,9 @@ angular.module('myApp.text')
             if ($scope.newAudioNeuron === neuron) {
                 $scope.newAudioNeuron = null;
             }
+            if ($scope.newDataPost === neuron) {
+                $scope.newDataPost = null;
+            }
         };
 
         let $btnAdd = $(".form-inline-btn-add");
@@ -100,4 +127,27 @@ angular.module('myApp.text')
                 $btnAdd.removeClass("form-inline-btn-add-top");
             }
         });
+
+        $scope.showPanel = () => {
+            let $card = $('.card-float'),
+                $button = $('.button-container');
+            $card.animate({
+                right: 0
+            }, 200);
+            $button.css({
+                'display': 'none'
+            });
+        };
+
+        $scope.closePanel = () => {
+            let $card = $('.card-float'),
+                $button = $('.button-container');
+            $card.animate({
+                right: -600 + 'px'
+            }, 200);
+            $button.css({
+                'display': 'flex'
+            });
+        };
+
     }]);

@@ -1,51 +1,52 @@
 <h2>Connected neurons (axons)</h2>
 <div ng-controller="NeuronConnectionsCtrl">
-    <form class="form-inline m-b-md">
-        <div class="form-group" ng-show="filters().length">
-            <label>Show:</label>
-
-            <div class="btn-group ">
-                <button type="button" class="btn btn-secondary dropdown-toggle form-control text-capitalize"
-                        data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    <span ng-if="filter">{{filter}}</span>
-                    <span ng-if="!filter">All</span>
-                </button>
-                <div class="dropdown-menu">
-                    <button class="dropdown-item " ng-click="setFilter(null)" ng-show="!!filter">All</button>
-                    <button class="dropdown-item text-capitalize" ng-click="setFilter(filtersItem)"
-                            ng-repeat="filtersItem in filters()" ng-show="filter!==filtersItem">{{filtersItem}}
-                    </button>
-                </div>
-            </div>
-        </div>
-    </form>
 
     <div class="m-b-md form-inline-btn-add">
-        <div>
-            <div class="form-group">
+        <div class="button-container">
+            <form class="form-inline m-b-md form-filter">
+                <div class="form-group" ng-show="filters().length">
+                    <label>Show:</label>
+
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-secondary dropdown-toggle form-control text-capitalize"
+                                data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            <span ng-if="filter">{{filter}}</span>
+                            <span ng-if="!filter">All</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item " ng-click="setFilter(null)" ng-show="!!filter">All</button>
+                            <button class="dropdown-item text-capitalize" ng-click="setFilter(filtersItem)"
+                                    ng-repeat="filtersItem in filters()" ng-show="filter!==filtersItem">{{filtersItem}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form class="form-group">
                 <div class="btn-group pull-right">
                     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-plus"></i> Add
                     </button>
                     <div class="dropdown-menu">
-                        <button class="dropdown-item" ng-click="showNewNeuronForm('text')">Text / Link</button>
-                        <button class="dropdown-item" ng-click="showNewNeuronForm('image')">Upload image</button>
-                        <button class="dropdown-item" ng-click="showNewNeuronForm('audio')">Upload audio</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('text'); showPanel()">Text / Link</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('image'); showPanel()">Upload image</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('audio'); showPanel()">Upload audio</button>
 
                         <div class="dropdown-divider"></div>
-                        <button class="dropdown-item disabled">Post</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('post'); showPanel()">Post</button>
                         <button class="dropdown-item disabled">Project</button>
                     </div>
-                </div></div>
+                </div>
+            </form>
         </div>
 
 
 
         <div class="card m-b-lg card-float" ng-show="newNeuronForm">
             <div class="card-block">
-                <button type="button" class="close" aria-label="Close" ng-click="showNewNeuronForm(null)">
+                <button type="button" class="close" aria-label="Close" ng-click="showNewNeuronForm(null); closePanel()">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <form ng-show="newNeuronForm==='text'" ng-submit="addNewNeuron(newNeuron)">
@@ -136,6 +137,28 @@
                     <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newAudioNeuron)" >Reset</button>
                 </form>
 
+                <form class="form-post" ng-show="newNeuronForm==='post'" ng-submit="addNewNeuronPost(newDataPost)">
+                    <h4 class="card-title">New post</h4>
+
+                    <fieldset class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" placeholder="Enter some text" required ng-model="newDataPost.header">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Image</label>
+                        <input type="url" class="form-control" placeholder="Paste link image" required ng-model="newDataPost.image">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" placeholder="Description" ng-model="newDataPost.description"></textarea>
+                    </fieldset>
+
+                    <button class="btn btn-primary" type="submit" ng-disabled="!newDataPost">Add</button>
+                    <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newDataPost)">Reset</button>
+                </form>
+
             </div>
         </div>
     </div>
@@ -155,6 +178,9 @@
                 <ul class="list-inline pull-left">
                     <li><span class="text-muted">Added:</span> {{neuron.created | date:'mediumDate'}}</li>
                 </ul>
+                <div class="post-description-block" ng-if="neuron.type==='post'">
+                    {{neuron.description}}
+                </div>
                 <div class="btn-group dropup pull-right">
                     <button class="btn btn-info-outline btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
