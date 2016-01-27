@@ -79,6 +79,11 @@
     background: #FFFFFF;
 }
 
+.post-description-block {
+    float: left;
+    clear: left;
+    width: 90%;
+}
 
 @media (max-width: 769px) {
     .form-inline-btn-add {

@@ -7,6 +7,15 @@ angular.module('myApp.text')
         $scope.newNeuronText = '';
         $scope.newNeuronForm = '';
         $scope.newNeuron = null;
+        $scope.newDataPost = {
+            id: null,
+            created: null,
+            header: "",
+            image: null,
+            description: "",
+            type: null,
+            type_title: null
+        };
 
         /* File uploader settings */
         if (window.FileReader) {
@@ -76,6 +85,15 @@ angular.module('myApp.text')
             $scope.newNeuron = neuronParser.parse({raw: this.newNeuronText, header: $scope.neuron.header});
         };
 
+        $scope.addNewNeuronPost = neuron => {
+            $scope.newDataPost.id = Date.now();
+            $scope.newDataPost.created = Date.now();
+            $scope.newDataPost.type = "post";
+            $scope.newDataPost.type_title = "post";
+            $scope.neuron.neurons.unshift(neuron);
+            $scope.clearNeuron(neuron);
+        };
+
         $scope.deleteFromNeurons = neuron =>
             $scope.neuron.neurons = _.without($scope.neuron.neurons, neuron);
 
@@ -89,6 +107,9 @@ angular.module('myApp.text')
             }
             if ($scope.newAudioNeuron === neuron) {
                 $scope.newAudioNeuron = null;
+            }
+            if ($scope.newDataPost === neuron) {
+                $scope.newDataPost = null;
             }
         };
 

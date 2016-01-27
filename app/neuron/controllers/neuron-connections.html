@@ -35,7 +35,7 @@
                         <button class="dropdown-item" ng-click="showNewNeuronForm('audio')">Upload audio</button>
 
                         <div class="dropdown-divider"></div>
-                        <button class="dropdown-item disabled">Post</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('post')">Post</button>
                         <button class="dropdown-item disabled">Project</button>
                     </div>
                 </div></div>
@@ -136,6 +136,28 @@
                     <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newAudioNeuron)" >Reset</button>
                 </form>
 
+                <form ng-show="newNeuronForm==='post'" ng-submit="addNewNeuronPost(newDataPost)">
+                    <h4 class="card-title">New post</h4>
+
+                    <fieldset class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" placeholder="Enter some text" required ng-model="newDataPost.header">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Image</label>
+                        <input type="url" class="form-control" placeholder="Paste link image" required ng-model="newDataPost.image">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" placeholder="Description" ng-model="newDataPost.description"></textarea>
+                    </fieldset>
+
+                    <button class="btn btn-primary" type="submit" ng-disabled="!newDataPost">Add</button>
+                    <button class="btn btn-secondary" type="reset" ng-click="clearNeuron(newDataPost)">Reset</button>
+                </form>
+
             </div>
         </div>
     </div>
@@ -155,6 +177,9 @@
                 <ul class="list-inline pull-left">
                     <li><span class="text-muted">Added:</span> {{neuron.created | date:'mediumDate'}}</li>
                 </ul>
+                <div class="post-description-block" ng-if="neuron.type==='post'">
+                    {{neuron.description}}
+                </div>
                 <div class="btn-group dropup pull-right">
                     <button class="btn btn-info-outline btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
