@@ -86,10 +86,14 @@ angular.module('myApp.text')
         };
 
         $scope.addNewNeuronPost = neuron => {
+            let text = $scope.newDataPost.description;
             $scope.newDataPost.id = Date.now();
             $scope.newDataPost.created = Date.now();
             $scope.newDataPost.type = "post";
             $scope.newDataPost.type_title = "post";
+            if (text.length > 100) {
+                $scope.newDataPost.description = text.slice(0, 100) + " ...";
+            }
             $scope.neuron.neurons.unshift(neuron);
             $scope.clearNeuron(neuron);
         };
