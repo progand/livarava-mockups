@@ -141,7 +141,7 @@ angular.module('myApp.text')
 
         $scope.closePanel = () => {
             let $card = $('.card-float'),
-                $button = $('.button-add-form');;
+                $button = $('.button-add-form');
             $card.animate({
                 right: -600 + 'px'
             }, 200);
