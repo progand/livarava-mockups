@@ -1,30 +1,30 @@
 <h2>Connected neurons (axons)</h2>
 <div ng-controller="NeuronConnectionsCtrl">
-    <form class="form-inline m-b-md">
-        <div class="form-group" ng-show="filters().length">
-            <label>Show:</label>
-
-            <div class="btn-group ">
-                <button type="button" class="btn btn-secondary dropdown-toggle form-control text-capitalize"
-                        data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    <span ng-if="filter">{{filter}}</span>
-                    <span ng-if="!filter">All</span>
-                </button>
-                <div class="dropdown-menu">
-                    <button class="dropdown-item " ng-click="setFilter(null)" ng-show="!!filter">All</button>
-                    <button class="dropdown-item text-capitalize" ng-click="setFilter(filtersItem)"
-                            ng-repeat="filtersItem in filters()" ng-show="filter!==filtersItem">{{filtersItem}}
-                    </button>
-                </div>
-            </div>
-        </div>
-    </form>
 
     <div class="m-b-md form-inline-btn-add">
-        <div>
-            <div class="form-group">
-                <div class="btn-group pull-right button-add-form">
+        <div class="button-container">
+            <form class="form-inline m-b-md form-filter">
+                <div class="form-group" ng-show="filters().length">
+                    <label>Show:</label>
+
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-secondary dropdown-toggle form-control text-capitalize"
+                                data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            <span ng-if="filter">{{filter}}</span>
+                            <span ng-if="!filter">All</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item " ng-click="setFilter(null)" ng-show="!!filter">All</button>
+                            <button class="dropdown-item text-capitalize" ng-click="setFilter(filtersItem)"
+                                    ng-repeat="filtersItem in filters()" ng-show="filter!==filtersItem">{{filtersItem}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form class="form-group">
+                <div class="btn-group pull-right">
                     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-plus"></i> Add
@@ -38,7 +38,8 @@
                         <button class="dropdown-item" ng-click="showNewNeuronForm('post'); showPanel()">Post</button>
                         <button class="dropdown-item disabled">Project</button>
                     </div>
-                </div></div>
+                </div>
+            </form>
         </div>
 
 

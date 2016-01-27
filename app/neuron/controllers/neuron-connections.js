@@ -130,7 +130,7 @@ angular.module('myApp.text')
 
         $scope.showPanel = () => {
             let $card = $('.card-float'),
-                $button = $('.button-add-form');
+                $button = $('.button-container');
             $card.animate({
                 right: 0
             }, 200);
@@ -141,12 +141,12 @@ angular.module('myApp.text')
 
         $scope.closePanel = () => {
             let $card = $('.card-float'),
-                $button = $('.button-add-form');
+                $button = $('.button-container');
             $card.animate({
                 right: -600 + 'px'
             }, 200);
             $button.css({
-                'display': 'block'
+                'display': 'flex'
             });
         };
 
