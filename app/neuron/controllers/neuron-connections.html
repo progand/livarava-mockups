@@ -24,18 +24,18 @@
     <div class="m-b-md form-inline-btn-add">
         <div>
             <div class="form-group">
-                <div class="btn-group pull-right">
+                <div class="btn-group pull-right button-add-form">
                     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-plus"></i> Add
                     </button>
                     <div class="dropdown-menu">
-                        <button class="dropdown-item" ng-click="showNewNeuronForm('text')">Text / Link</button>
-                        <button class="dropdown-item" ng-click="showNewNeuronForm('image')">Upload image</button>
-                        <button class="dropdown-item" ng-click="showNewNeuronForm('audio')">Upload audio</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('text'); showPanel()">Text / Link</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('image'); showPanel()">Upload image</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('audio'); showPanel()">Upload audio</button>
 
                         <div class="dropdown-divider"></div>
-                        <button class="dropdown-item" ng-click="showNewNeuronForm('post')">Post</button>
+                        <button class="dropdown-item" ng-click="showNewNeuronForm('post'); showPanel()">Post</button>
                         <button class="dropdown-item disabled">Project</button>
                     </div>
                 </div></div>
@@ -45,7 +45,7 @@
 
         <div class="card m-b-lg card-float" ng-show="newNeuronForm">
             <div class="card-block">
-                <button type="button" class="close" aria-label="Close" ng-click="showNewNeuronForm(null)">
+                <button type="button" class="close" aria-label="Close" ng-click="showNewNeuronForm(null); closePanel()">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <form ng-show="newNeuronForm==='text'" ng-submit="addNewNeuron(newNeuron)">

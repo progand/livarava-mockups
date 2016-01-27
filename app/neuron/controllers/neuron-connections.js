@@ -79,6 +79,7 @@ angular.module('myApp.text')
             $scope.clearNeuron(neuron);
             if($scope.newNeuronForm === "image" || $scope.newNeuronForm === "audio") {
                 $scope.newNeuronForm = null;
+                $scope.closePanel();
             }
         };
         $scope.onNewNeuronTextChange = function () {
@@ -96,6 +97,7 @@ angular.module('myApp.text')
             }
             $scope.neuron.neurons.unshift(neuron);
             $scope.clearNeuron(neuron);
+            $scope.closePanel();
         };
 
         $scope.deleteFromNeurons = neuron =>
@@ -125,4 +127,27 @@ angular.module('myApp.text')
                 $btnAdd.removeClass("form-inline-btn-add-top");
             }
         });
+
+        $scope.showPanel = () => {
+            let $card = $('.card-float'),
+                $button = $('.button-add-form');
+            $card.animate({
+                right: 0
+            }, 200);
+            $button.css({
+                'display': 'none'
+            });
+        };
+
+        $scope.closePanel = () => {
+            let $card = $('.card-float'),
+                $button = $('.button-add-form');;
+            $card.animate({
+                right: -600 + 'px'
+            }, 200);
+            $button.css({
+                'display': 'block'
+            });
+        };
+
     }]);

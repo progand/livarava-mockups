@@ -109,3 +109,16 @@
         width: auto;
     }
 }
+
+
+.card-float {
+    position: fixed;
+    top: 40px;
+    right: -600px;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    overflow-y: scroll;
+    max-height: 400px;
+}
