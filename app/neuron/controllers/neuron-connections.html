@@ -15,8 +15,8 @@
                             <span ng-if="!filter">All</span>
                         </button>
                         <div class="dropdown-menu">
-                            <button class="dropdown-item " ng-click="setFilter(null)" ng-show="!!filter">All</button>
-                            <button class="dropdown-item text-capitalize" ng-click="setFilter(filtersItem)"
+                            <button class="dropdown-item " ng-click="setFilter(null); hasMoreItemsToShow('All');" ng-show="!!filter">All</button>
+                            <button class="dropdown-item text-capitalize" ng-click="setFilter(filtersItem); hasMoreItemsToShow(filter);"
                                     ng-repeat="filtersItem in filters()" ng-show="filter!==filtersItem">{{filtersItem}}
                             </button>
                         </div>
@@ -194,7 +194,7 @@
             </div>
         </div>
         <div class="m-t-2">
-            <button class="btn btn-primary center-block" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">Show more</button>
+            <button class="btn btn-primary center-block" ng-show="btnShowMore" ng-click="showMoreItems(); hasMoreItemsToShow();">Show more</button>
         </div>
     </div>
 </div>
