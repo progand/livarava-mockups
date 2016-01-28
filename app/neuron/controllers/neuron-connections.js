@@ -7,15 +7,7 @@ angular.module('myApp.text')
         $scope.newNeuronText = '';
         $scope.newNeuronForm = '';
         $scope.newNeuron = null;
-        $scope.newDataPost = {
-            id: null,
-            created: null,
-            header: "",
-            image: null,
-            description: "",
-            type: null,
-            type_title: null
-        };
+        $scope.newDataPost = null;
 
         /* File uploader settings */
         if (window.FileReader) {
