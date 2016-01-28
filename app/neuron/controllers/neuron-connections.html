@@ -165,7 +165,7 @@
 
 
     <div class="neuron-connections__neurons">
-        <div class="media" ng-repeat="neuron in filteredNeurons()">
+        <div class="media" ng-repeat="neuron in filteredNeurons() | limitTo: paginationLimit()">
             <div class="media-left">
                 <img class="media-object" ng-src="{{neuron.image}}" alt="{{neuron.header}}" width="100">
             </div>
@@ -192,6 +192,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="m-t-2">
+            <button class="btn btn-primary center-block" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">Show more</button>
         </div>
     </div>
 </div>
