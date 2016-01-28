@@ -114,11 +114,11 @@ angular.module('myApp.text')
             }
         };
 
-        $scope.paginationLimit = function() {
+        $scope.paginationLimit = () => {
             return itemCount * pagesShown;
         };
 
-        $scope.hasMoreItemsToShow = function(data) {
+        $scope.hasMoreItemsToShow = data => {
             if (data) {
                 pagesShown = 1; itemCount = 10;
                 if (data == 'All'){
@@ -132,7 +132,7 @@ angular.module('myApp.text')
             }
         };
 
-        $scope.showMoreItems = function() {
+        $scope.showMoreItems = () => {
             pagesShown = pagesShown + 1;
         };
 
