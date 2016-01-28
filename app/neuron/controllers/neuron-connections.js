@@ -8,6 +8,8 @@ angular.module('myApp.text')
         $scope.newNeuronForm = '';
         $scope.newNeuron = null;
         $scope.newDataPost = null;
+        $scope.neuronLists = $scope.neuron.neurons;
+        let pagesShown = 1, itemCount = 10;
 
         /* File uploader settings */
         if (window.FileReader) {
@@ -109,6 +111,18 @@ angular.module('myApp.text')
             if ($scope.newDataPost === neuron) {
                 $scope.newDataPost = null;
             }
+        };
+
+        $scope.paginationLimit = function() {
+            return itemCount * pagesShown;
+        };
+
+        $scope.hasMoreItemsToShow = function() {
+            return pagesShown < ($scope.neuronLists.length / itemCount);
+        };
+
+        $scope.showMoreItems = function() {
+            pagesShown = pagesShown + 1;
         };
 
         let $btnAdd = $(".form-inline-btn-add");
