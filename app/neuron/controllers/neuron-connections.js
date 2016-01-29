@@ -137,15 +137,6 @@ angular.module('myApp.text')
             pagesShown = pagesShown + 1;
         };
 
-        let $btnAdd = $(".form-inline-btn-add");
-        $(document).scroll(function () {
-            if ($(this).scrollTop() > 150) {
-                $btnAdd.addClass("form-inline-btn-add-top");
-            } else {
-                $btnAdd.removeClass("form-inline-btn-add-top");
-            }
-        });
-
         $scope.showPanel = () => {
             let $card = $('.card-float'),
                 $button = $('.button-container');

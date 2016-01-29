@@ -63,8 +63,8 @@
 
 .form-inline-btn-add {
     position: fixed;
-    top: 258px;
-    right: 30px;
+    top: 65px;
+    right: 10px;
     z-index: 1;
 }
 
@@ -91,7 +91,7 @@
 
 @media (max-width: 769px) {
     .form-inline-btn-add {
-        top: 345px;
+        top: 160px;
     }
 }
 
@@ -124,12 +124,12 @@
 
 .card-float {
     position: fixed;
-    top: 40px;
+    top: 0;
     right: -600px;
     -webkit-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
     -o-transition-duration: 0.3s;
     transition-duration: 0.3s;
     overflow-y: scroll;
-    max-height: 400px;
+    max-height: 500px;
 }
