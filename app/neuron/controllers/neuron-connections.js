@@ -168,4 +168,8 @@ angular.module('myApp.text')
             });
         };
 
+        $scope.blurred = function() {
+            this.editingHeader = false;
+        };
+
     }]);
