@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp.text')
-    .controller('NeuronConnectionsCtrl', ['$scope', 'FileUploader', 'neuronParser', function ($scope, FileUploader, neuronParser) {
+    .controller('NeuronConnectionsCtrl', ['$scope', 'FileUploader', 'neuronParser', '$filter', function ($scope, FileUploader, neuronParser, $filter) {
         $scope.filter = null;
         $scope.filteredNeurons = $scope.neuron.neurons;
         $scope.newNeuronText = '';
@@ -9,7 +9,9 @@ angular.module('myApp.text')
         $scope.newNeuron = null;
         $scope.newDataPost = null;
         $scope.neuronLists = $scope.neuron.neurons;
+        $scope.editingHeader = false;
         let pagesShown = 1, itemCount = 10;
+        $scope.btnShowMore = pagesShown < ($scope.neuronLists.length / itemCount);
 
         /* File uploader settings */
         if (window.FileReader) {
@@ -113,26 +115,27 @@ angular.module('myApp.text')
             }
         };
 
-        $scope.paginationLimit = function() {
+        $scope.paginationLimit = () => {
             return itemCount * pagesShown;
         };
 
-        $scope.hasMoreItemsToShow = function() {
-            return pagesShown < ($scope.neuronLists.length / itemCount);
+        $scope.hasMoreItemsToShow = data => {
+            if (data) {
+                pagesShown = 1; itemCount = 10;
+                if (data == 'All'){
+                    $scope.btnShowMore = pagesShown < ($scope.neuronLists.length / itemCount);
+                } else {
+                    let item = $filter('filter')($scope.neuronLists, data);
+                    $scope.btnShowMore = pagesShown < (item.length / itemCount);
+                }
+            } else {
+                $scope.btnShowMore = pagesShown < ($scope.neuronLists.length / itemCount);
+            }
         };
 
-        $scope.showMoreItems = function() {
+        $scope.showMoreItems = () => {
             pagesShown = pagesShown + 1;
         };
-
-        let $btnAdd = $(".form-inline-btn-add");
-        $(document).scroll(function () {
-            if ($(this).scrollTop() > 150) {
-                $btnAdd.addClass("form-inline-btn-add-top");
-            } else {
-                $btnAdd.removeClass("form-inline-btn-add-top");
-            }
-        });
 
         $scope.showPanel = () => {
             let $card = $('.card-float'),
@@ -154,6 +157,10 @@ angular.module('myApp.text')
             $button.css({
                 'display': 'flex'
             });
+        };
+
+        $scope.blurred = function() {
+            this.editingHeader = false;
         };
 
     }]);

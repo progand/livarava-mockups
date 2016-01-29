@@ -15,8 +15,8 @@
                             <span ng-if="!filter">All</span>
                         </button>
                         <div class="dropdown-menu">
-                            <button class="dropdown-item " ng-click="setFilter(null)" ng-show="!!filter">All</button>
-                            <button class="dropdown-item text-capitalize" ng-click="setFilter(filtersItem)"
+                            <button class="dropdown-item " ng-click="setFilter(null); hasMoreItemsToShow('All');" ng-show="!!filter">All</button>
+                            <button class="dropdown-item text-capitalize" ng-click="setFilter(filtersItem); hasMoreItemsToShow(filter);"
                                     ng-repeat="filtersItem in filters()" ng-show="filter!==filtersItem">{{filtersItem}}
                             </button>
                         </div>
@@ -67,7 +67,8 @@
                         </div>
 
                         <div class="media-body">
-                            <h4 class="media-heading">{{newNeuron.header}}</h4>
+                            <h4 class="media-heading" ng-show="!editingHeader" ng-click="editingHeader = !editingHeader">{{newNeuron.header}}</h4>
+                            <input type="text" class="form-control" ng-model="newNeuron.header" ng-show="editingHeader" ng-blur="blurred()">
                             <ul class="list-inline">
                                 <li><span class="text-muted">Added:</span> {{newNeuron.created | date:'mediumDate'}}</li>
                             </ul>
@@ -95,7 +96,8 @@
                         </div>
 
                         <div class="media-body">
-                            <h4 class="media-heading">{{newImageNeuron.header}}</h4>
+                            <h4 class="media-heading" ng-show="!editingHeader" ng-click="editingHeader = !editingHeader">{{newImageNeuron.header}}</h4>
+                            <input type="text" class="form-control" ng-model="newImageNeuron.header" ng-show="editingHeader" ng-blur="blurred()">
                             <ul class="list-inline">
                                 <li><span class="text-muted">Added:</span> {{newImageNeuron.created | date:'mediumDate'}}
                                 </li>
@@ -194,7 +196,7 @@
             </div>
         </div>
         <div class="m-t-2">
-            <button class="btn btn-primary center-block" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()">Show more</button>
+            <button class="btn btn-primary center-block" ng-show="btnShowMore" ng-click="showMoreItems(); hasMoreItemsToShow();">Show more</button>
         </div>
     </div>
 </div>
