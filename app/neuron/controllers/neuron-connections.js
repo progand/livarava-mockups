@@ -9,6 +9,7 @@ angular.module('myApp.text')
         $scope.newNeuron = null;
         $scope.newDataPost = null;
         $scope.neuronLists = $scope.neuron.neurons;
+        $scope.editingHeader = false;
         let pagesShown = 1, itemCount = 10;
         $scope.btnShowMore = pagesShown < ($scope.neuronLists.length / itemCount);
 

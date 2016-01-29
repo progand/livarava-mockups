@@ -67,7 +67,8 @@
                         </div>
 
                         <div class="media-body">
-                            <h4 class="media-heading">{{newNeuron.header}}</h4>
+                            <h4 class="media-heading" ng-show="!editingHeader" ng-click="editingHeader = !editingHeader">{{newNeuron.header}}</h4>
+                            <input type="text" class="form-control" ng-model="newNeuron.header"  ng-show="editingHeader">
                             <ul class="list-inline">
                                 <li><span class="text-muted">Added:</span> {{newNeuron.created | date:'mediumDate'}}</li>
                             </ul>
@@ -95,7 +96,8 @@
                         </div>
 
                         <div class="media-body">
-                            <h4 class="media-heading">{{newImageNeuron.header}}</h4>
+                            <h4 class="media-heading" ng-show="!editingHeader" ng-click="editingHeader = !editingHeader">{{newImageNeuron.header}}</h4>
+                            <input type="text" class="form-control" ng-model="newImageNeuron.header" ng-show="editingHeader">
                             <ul class="list-inline">
                                 <li><span class="text-muted">Added:</span> {{newImageNeuron.created | date:'mediumDate'}}
                                 </li>
